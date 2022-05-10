@@ -22,9 +22,9 @@ import (
 	"time"
 
 	"github.com/hailwind/goplane/config"
-	client "github.com/osrg/gobgp/internal/pkg/zebra"
-	"github.com/osrg/gobgp/packet/bgp"
-	"github.com/osrg/gobgp/table"
+	"github.com/hailwind/goplane/internal/pkg/table"
+	client "github.com/hailwind/goplane/internal/pkg/zebra"
+	"github.com/osrg/gobgp/pkg/packet/bgp"
 	log "github.com/sirupsen/logrus"
 	"github.com/vishvananda/netlink"
 	"github.com/vishvananda/netlink/nl"

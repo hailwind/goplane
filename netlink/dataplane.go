@@ -21,10 +21,10 @@ import (
 	"time"
 
 	"github.com/hailwind/goplane/config"
-	bgpconfig "github.com/osrg/gobgp/internal/pkg/config"
-	client "github.com/osrg/gobgp/internal/pkg/zebra"
-	"github.com/osrg/gobgp/packet/bgp"
-	"github.com/osrg/gobgp/table"
+	bgpconfig "github.com/hailwind/goplane/internal/pkg/config"
+	"github.com/hailwind/goplane/internal/pkg/table"
+	client "github.com/hailwind/goplane/internal/pkg/zebra"
+	"github.com/osrg/gobgp/pkg/packet/bgp"
 	log "github.com/sirupsen/logrus"
 	"github.com/vishvananda/netlink"
 	"gopkg.in/tomb.v2"
@@ -140,18 +140,48 @@ func (d *Dataplane) modRib(paths []*table.Path) error {
 }
 
 func (d *Dataplane) monitorBest() error {
+	w := d.bgpServer.Watch(bgpserver.WatchBestPath(true))
 
-	watcher, err := d.client.MonitorRIB(bgp.RF_IPv4_UC, true)
-	if err != nil {
-		return err
-	}
-	for {
-		dst, err := watcher.Recv()
-		if err != nil {
-			return err
+	go func() {
+		defer func() {
+			w.Stop()
+		}()
+
+		family := bgp.AfiSafiToRouteFamily(bgp.AFI_IP, bgp.SAFI_UNICAST)
+		exitCurrentLoop := false
+		for {
+			ev := <-w.Event()
+			var paths []*table.Path
+			switch msg := ev.(type) {
+			case *bgpserver.WatchEventBestPath:
+				if len(msg.MultiPathList) > 0 {
+					l := make([]*table.Path, 0)
+					for _, p := range msg.MultiPathList {
+						l = append(l, p...)
+					}
+					paths = l
+					log.Debug("## msg.MultiPathList", paths)
+				} else {
+					paths = msg.PathList
+					log.Debug("## msg.PathList", paths)
+				}
+			case *bgpserver.WatchEventUpdate:
+				paths = msg.PathList
+				log.Debug("## msg.PathList2", paths)
+			}
+			for _, path := range paths {
+				if path == nil || family != path.GetRouteFamily() {
+					exitCurrentLoop = true
+					break
+				}
+			}
+			if exitCurrentLoop == false {
+				d.modRibCh <- paths
+			} else {
+				exitCurrentLoop = false
+			}
 		}
-		d.modRibCh <- dst.GetAllKnownPathList()
-	}
+	}()
 	return nil
 }
 

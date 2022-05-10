@@ -31,10 +31,10 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/sirupsen/logrus/hooks/syslog"
 
+	bgpconfig "github.com/hailwind/goplane/internal/pkg/config"
 	bgpapi "github.com/osrg/gobgp/api"
-	bgpconfig "github.com/osrg/gobgp/internal/pkg/config"
-	"github.com/osrg/gobgp/packet/bgp"
-	bgpserver "github.com/osrg/gobgp/server"
+	"github.com/osrg/gobgp/pkg/packet/bgp"
+	bgpserver "github.com/osrg/gobgp/pkg/server"
 )
 
 type Dataplaner interface {
