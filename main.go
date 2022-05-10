@@ -32,7 +32,7 @@ import (
 	"github.com/sirupsen/logrus/hooks/syslog"
 
 	bgpapi "github.com/osrg/gobgp/api"
-	bgpconfig "github.com/osrg/gobgp/config"
+	bgpconfig "github.com/osrg/gobgp/internal/pkg/config"
 	"github.com/osrg/gobgp/packet/bgp"
 	bgpserver "github.com/osrg/gobgp/server"
 )

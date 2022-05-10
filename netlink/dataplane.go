@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/hailwind/goplane/config"
-	bgpconfig "github.com/osrg/gobgp/config"
+	bgpconfig "github.com/osrg/gobgp/internal/pkg/config"
 	client "github.com/osrg/gobgp/internal/pkg/zebra"
 	"github.com/osrg/gobgp/packet/bgp"
 	"github.com/osrg/gobgp/table"
