@@ -6,7 +6,7 @@ FROM osrg/gobgp
 MAINTAINER ISHIDA Wataru <ishida.wataru@lab.ntt.co.jp>
 
 ENV GO15VENDOREXPERIMENT 1
-RUN curl https://github.com/Masterminds/glide/releases/download/v0.13.3/glide-v0.13.3-linux-amd64.tar.gz && tar zxf glide-v0.13.3-linux-amd64.tar.gz && cp glide-v0.13.3-linux-amd64/glide /usr/bin
+RUN curl https://github.com/Masterminds/glide/releases/download/v0.13.3/glide-v0.13.3-linux-amd64.tar.gz && tar zxf glide-v0.13.3-linux-amd64.tar.gz && cp linux-amd64/glide /usr/bin && rm -rf linux-amd64 glide-v0.13.3-linux-amd64.tar.gz
 ADD . $GOPATH/src/github.com/hailwind/goplane/
 RUN cd $GOPATH/src/github.com/hailwind/goplane && glide install
 RUN go install github.com/hailwind/goplane
