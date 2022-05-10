@@ -21,7 +21,7 @@ import (
 
 	"github.com/coreos/go-iptables/iptables"
 	"github.com/hailwind/goplane/config"
-	"github.com/osrg/gobgp/client"
+	client "github.com/osrg/gobgp/internal/pkg/zebra"
 	"github.com/osrg/gobgp/packet/bgp"
 	bgptable "github.com/osrg/gobgp/table"
 	log "github.com/sirupsen/logrus"
