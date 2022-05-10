@@ -1,4 +1,4 @@
-package: github.com/osrg/goplane
+package: github.com/hailwind/goplane
 import:
 - package: github.com/sirupsen/logrus
   subpackages:

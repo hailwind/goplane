@@ -21,10 +21,10 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/hailwind/goplane/config"
 	"github.com/osrg/gobgp/client"
 	"github.com/osrg/gobgp/packet/bgp"
 	"github.com/osrg/gobgp/table"
-	"github.com/osrg/goplane/config"
 	log "github.com/sirupsen/logrus"
 	"github.com/vishvananda/netlink"
 	"github.com/vishvananda/netlink/nl"

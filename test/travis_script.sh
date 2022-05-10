@@ -4,7 +4,7 @@ echo "execute scenario test:" $TEST
 
 echo "build docker image"
 
-docker build -t osrg/goplane .
+docker build -t hailwind/goplane .
 
 echo "install python dependencies"
 

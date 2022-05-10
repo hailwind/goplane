@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/hailwind/goplane/config"
+	"github.com/hailwind/goplane/iptables"
+	"github.com/hailwind/goplane/netlink"
 	"github.com/jessevdk/go-flags"
-	"github.com/osrg/goplane/config"
-	"github.com/osrg/goplane/iptables"
-	"github.com/osrg/goplane/netlink"
 	log "github.com/sirupsen/logrus"
 	"github.com/sirupsen/logrus/hooks/syslog"
 

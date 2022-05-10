@@ -1,6 +1,6 @@
 # GoPlane
 
-[![Build Status](https://travis-ci.org/osrg/goplane.svg?branch=master)](https://travis-ci.org/osrg/goplane/builds)
+[![Build Status](https://travis-ci.org/hailwind/goplane.svg?branch=master)](https://travis-ci.org/hailwind/goplane/builds)
 
 GoPlane is an agent for configuring linux network stack via [GoBGP](https://github.com/osrg/gobgp)
 
@@ -23,14 +23,14 @@ GoPlane is an agent for configuring linux network stack via [GoBGP](https://gith
 You need [glide](https://github.com/Masterminds/glide) to resolve goplane's dependencies.
 
 ```
-$ go get github.com/osrg/goplane
-$ cd $GOPATH/src/github.com/osrg/goplane; glide install
+$ go get github.com/hailwind/goplane
+$ cd $GOPATH/src/github.com/hailwind/goplane; glide install
 ```
 
 ## Features
 - EVPN/VxLAN L2VPN construction
     - construct multi-tenant l2 domains using [BGP/EVPN](https://tools.ietf.org/html/rfc7432) and VxLAN
-    - see [test/netlink](https://github.com/osrg/goplane/tree/master/test/netlink) for more details
+    - see [test/netlink](https://github.com/hailwind/goplane/tree/master/test/netlink) for more details
 - Flowspec/iptables remote firewall configuration
     - configure firewall using [BGP/FLOWSPEC](https://tools.ietf.org/html/rfc5575) and iptables
-    - see [test/iptables](https://github.com/osrg/goplane/tree/master/test/iptables) for more details
+    - see [test/iptables](https://github.com/hailwind/goplane/tree/master/test/iptables) for more details

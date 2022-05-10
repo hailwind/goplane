@@ -233,7 +233,7 @@ class GoPlaneContainer(BGPContainer):
     PEER_TYPE_EXTERNAL = 'external'
     SHARED_VOLUME = '/root/shared_volume'
 
-    def __init__(self, name, asn, router_id, ctn_image_name='osrg/goplane',
+    def __init__(self, name, asn, router_id, ctn_image_name='hailwind/goplane',
                  log_level='debug', bgp_remote=False):
         super(GoPlaneContainer, self).__init__(name, asn, router_id,
                                              ctn_image_name)
