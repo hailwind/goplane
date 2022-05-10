@@ -26,3 +26,4 @@ _testmain.go
 goplane
 vendor
 *.pyc
+glide.lock
