@@ -19,12 +19,12 @@ import (
 	"fmt"
 	"io"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/coreos/go-iptables/iptables"
 	"github.com/osrg/gobgp/client"
 	"github.com/osrg/gobgp/packet/bgp"
 	bgptable "github.com/osrg/gobgp/table"
 	"github.com/osrg/goplane/config"
+	log "github.com/sirupsen/logrus"
 )
 
 func FlowSpec2IptablesRule(nlri []bgp.FlowSpecComponentInterface, attr []bgp.PathAttributeInterface) ([]string, error) {

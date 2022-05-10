@@ -1,6 +1,6 @@
 package: github.com/osrg/goplane
 import:
-- package: github.com/Sirupsen/logrus
+- package: github.com/sirupsen/logrus
   subpackages:
   - hooks/syslog
 - package: github.com/coreos/go-iptables

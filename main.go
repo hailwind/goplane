@@ -24,12 +24,12 @@ import (
 	"strings"
 	"syscall"
 
-	log "github.com/Sirupsen/logrus"
-	"github.com/Sirupsen/logrus/hooks/syslog"
 	"github.com/jessevdk/go-flags"
 	"github.com/osrg/goplane/config"
 	"github.com/osrg/goplane/iptables"
 	"github.com/osrg/goplane/netlink"
+	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus/hooks/syslog"
 
 	bgpapi "github.com/osrg/gobgp/api"
 	bgpconfig "github.com/osrg/gobgp/config"
